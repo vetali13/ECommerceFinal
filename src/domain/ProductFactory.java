@@ -9,8 +9,8 @@ import com.github.javafaker.Faker;
 public class ProductFactory {
 	
 	private static final ProductFactory INSTANCE = new ProductFactory(new ArrayList<>(), 1);
-	private static List<AbstractProduct> products;
-	private static Integer id;
+	private List<AbstractProduct> products;
+	private Integer id;
 	
 	private ProductFactory(List<AbstractProduct> products, Integer id) {
 		this.products = products;
