@@ -19,20 +19,13 @@ public class Application {
 				"Republic of Moldova",
 				new Category("Books")
 				);
-		ProductFactory.getProductFactory().getFakeProduct();
-		ProductFactory.getProductFactory().getManyFakeProducts(10);
 		
 		ProductFactory.getProductFactory().printAllProducts();
 		
 		Cart cart = new Cart();
 		
-		ProductFactory.getProductFactory().getAllProducts().forEach(p->{
-			if(p.getId()%2 == 1) {
-				cart.add(ProductFactory.getProductFactory().castProduct(p));
-			}
-		});
-		
-		cart.add(cart.findById(1));
+		ProductFactory.getProductFactory().getAllProducts().forEach(p->
+				cart.add(ProductFactory.getProductFactory().castProduct(p)));
 		
 		cart.printAll();
 		
@@ -42,7 +35,10 @@ public class Application {
 		
 		cart.calculateTotal();
 		System.out.println(cart.getTotal());
+		
+		Money priceInEur = new Money("RUB", 1000.0f);
+		Money samePriceInLei = priceInEur.toCurrency("MDL");
+		
+		System.out.println(samePriceInLei);
 	}
-
-	
 }
