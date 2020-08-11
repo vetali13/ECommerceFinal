@@ -1,8 +1,9 @@
 package domain;
 
-public class Currency {
-	public static Currency baseCurrency = new Currency ("EUR", 1.00); 
+import java.io.Serializable;
 
+public class Currency implements Serializable{
+		public static Currency baseCurrency = new Currency ("EUR", 1.00); 
 	    private String code;
 	    private double rate;
 	    

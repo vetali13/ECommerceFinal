@@ -1,8 +1,9 @@
 package domain;
 
+import java.io.Serializable;
 import java.util.Date;
 	
-public class Product extends AbstractProduct {
+public class Product extends AbstractProduct implements Serializable{
 		private Integer id;
 		private String name;
 		private Money price;

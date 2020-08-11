@@ -5,13 +5,23 @@ import java.sql.Date;
 import domain.Cart;
 import domain.Category;
 import domain.Money;
+import domain.Product;
 import domain.ProductFactory;
+import domain.DataRepository;
 
 public class Application {
 
 	public static void main(String[] args) {
 		
-		ProductFactory.getProductFactory().getProduct(
+		Product p1 = (Product) DataRepository.load(Product.class);
+		
+		Cart cart = new Cart();
+		
+		cart.add(p1);
+		
+		cart.printAll();
+		
+		/* Product p1 = (Product) ProductFactory.getProductFactory().getProduct(
 				"Book 1",
 				new Money("MDL", 125.25f),
 				12,
@@ -21,6 +31,8 @@ public class Application {
 				);
 		
 		ProductFactory.getProductFactory().printAllProducts();
+		
+		DataRepository.save(p1);
 		
 		Cart cart = new Cart();
 		
@@ -39,6 +51,6 @@ public class Application {
 		Money priceInEur = new Money("RUB", 1000.0f);
 		Money samePriceInLei = priceInEur.toCurrency("MDL");
 		
-		System.out.println(samePriceInLei);
+		System.out.println(samePriceInLei); */
 	}
 }
